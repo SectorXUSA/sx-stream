@@ -1,4 +1,6 @@
 <script>
+	import { page } from '$app/stores';
+
 	// urql initialization
 	import TournamentSet from '$lib/TournamentSet.svelte';
 	import { gql, operationStore, query } from '@urql/svelte';
@@ -50,7 +52,7 @@
 		}
 	`;
 
-	export let tourneySlug = 'sx-stream-test';
+	const { tourneySlug } = $page.params;
 
 	const streamQueue = operationStore(streamQueueQuery, { tourneySlug });
 	query(streamQueue);
