@@ -1,0 +1,15 @@
+@layer utilities {
+	@font-face {
+		font-family: 'House Gothic Light Four';
+		src: url('HouseGothic_LightFour.woff2') format('woff2');
+	}
+
+	.font-house-gothic-lightfour {
+		font-family: 'House Gothic Light Four';
+	}
+
+	.text-sx {
+		@apply font-house-gothic-lightfour;
+		@apply uppercase;
+	}
+}

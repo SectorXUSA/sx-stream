@@ -27,6 +27,13 @@
 						slots {
 							entrant {
 								name
+								participants {
+									user {
+										images {
+											url
+										}
+									}
+								}
 							}
 
 							standing {
@@ -46,14 +53,23 @@
 	export let tourneySlug = 'sx-stream-test';
 
 	const streamQueue = operationStore(streamQueueQuery, { tourneySlug });
-
 	query(streamQueue);
+
+	let tournament;
+	$: if (!$streamQueue?.fetching && !$streamQueue?.error) ({ tournament } = $streamQueue.data);
+
+	let ms = 2000;
+	let interval;
+
+	$: {
+		clearInterval(interval);
+
+		interval = setInterval(() => {
+			streamQueue.reexecute({ requestPolicy: 'network-only' });
+		}, ms);
+	}
 </script>
 
-{#if $streamQueue.fetching}
-	<p>Loading...</p>
-{:else if $streamQueue.error}
-	<p>Error: {$streamQueue.error.message}</p>
-{:else}
-	<TournamentSet tournament={$streamQueue.data.tournament} />
+{#if tournament}
+	<TournamentSet {tournament} />
 {/if}

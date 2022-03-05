@@ -1,5 +1,4 @@
 <script>
-	import 'tailwindcss/tailwind.css';
 	import { initClient } from '@urql/svelte';
 
 	initClient({
@@ -14,3 +13,8 @@
 </script>
 
 <slot />
+
+<style lang="postcss">
+	@import 'tailwindcss/tailwind.css';
+	@import '$lib/tailwindcss/utilities/font-sx/font-sx.css';
+</style>
