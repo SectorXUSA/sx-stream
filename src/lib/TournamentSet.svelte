@@ -20,7 +20,7 @@
 </script>
 
 {#if set}
-	<div class="fixed inset-0" style="background-image: url('/screenshot.jpg');" />
+	<div class="fixed inset-0 hidden" style="background-image: url('/screenshot.jpg');" />
 
 	<div class="fixed left-0 top-0 m-8">
 		{set.fullRoundText}
