@@ -19,16 +19,19 @@
 	});
 
 	$: set = sets?.[0];
+
+	let top;
 </script>
 
 {#if set}
 	<div
-		class="fixed left-0 right-0 grid justify-items-center text-sx text-center"
-		in:fly={{ y: -240, duration: 2000 }}
+		class="justify-items-center text-sx fixed left-0 right-0 grid text-center"
+		bind:this={top}
+		in:fly={{ y: -window?.innerHeight / 2, duration: 1000 }}
 		out:fade
 	>
 		<div>
-			<div class="max-w-full bg-white text-4xl  border-2 border-black border-dashed border-b-0">
+			<div class="max-w-full text-4xl bg-white border-2 border-b-0 border-black">
 				<span>{set.event.tournament.name}</span>
 				-
 				<span>{set.event.name}</span>
@@ -36,20 +39,20 @@
 				<span>{set.fullRoundText}</span>
 			</div>
 
-			<div class="h-16 flex justify-center">
+			<div class="flex justify-center h-16">
 				<img
-					class="[height:125%] aspect-square object-cover drop-shadow-2xl rounded-b-xl bg-white border-2 border-black border-dashed"
-					src={set.slots[0].entrant.participants[0].user.images?.[0]?.url ?? '/SX Icon Black.webp'}
+					class="aspect-square drop-shadow-2xl object-cover bg-black border-2 border-black"
+					src={set.slots[0].entrant.participants[0].user.images?.[0]?.url ?? '/SX Icon White.webp'}
 					alt={set.slots[0].entrant.name}
 				/>
 
 				<span
-					class="bg-red-700 w-80 p-4 grid justify-center content-center text-white text-4xl font-bold border-2 border-black border-dashed"
+					class="bg-primary w-80 grid content-center justify-center p-4 text-4xl font-bold text-white border-2 border-black"
 				>
 					{set.slots[0].entrant.name}</span
 				>
 				<div
-					class="bg-white h-full aspect-square flex justify-center font-bold text-6xl border-2 border-x-0 border-black border-dashed"
+					class="aspect-square border-x-0 flex justify-center h-full text-6xl font-bold bg-white border-2 border-black"
 				>
 					{#key set.slots[0].standing.stats.score.value}
 						<span class="absolute" transition:fade>
@@ -58,13 +61,13 @@
 					{/key}
 				</div>
 				<img
-					class="bg-white [height:150%] object-scale-down drop-shadow-2xl rounded-b-2xl border-2 border-black border-dashed"
+					class="bg-white [height:150%] object-scale-down drop-shadow-2xl rounded-b-2xl border-2 border-black"
 					src="/SX Icon Black.webp"
 					alt="SX Logo"
 				/>
-				<!-- <span class="bg-white  grid justify-center items-center font-thin text-4xl"> | </span> -->
+				<!-- <span class="grid items-center justify-center text-4xl font-thin bg-white"> | </span> -->
 				<div
-					class="bg-white h-full aspect-square flex justify-center font-bold text-6xl border-2 border-x-0 border-black border-dashed"
+					class="aspect-square border-x-0 flex justify-center h-full text-6xl font-bold bg-white border-2 border-black"
 				>
 					{#key set.slots[1].standing.stats.score.value}
 						<span class="absolute" transition:fade>
@@ -73,13 +76,13 @@
 					{/key}
 				</div>
 				<span
-					class="bg-red-700 w-80 p-4 grid justify-center content-center text-white text-4xl font-bold border-2 border-black border-dashed"
+					class="bg-primary w-80 grid content-center justify-center p-4 text-4xl font-bold text-white border-2 border-black"
 				>
 					{set.slots[1].entrant.name}
 				</span>
 				<img
-					class="[height:125%] aspect-square object-cover drop-shadow-2xl rounded-b-xl bg-white border-2 border-black border-dashed"
-					src={set.slots[1].entrant.participants[0].user.images?.[0]?.url ?? '/SX Icon Black.webp'}
+					class="aspect-square drop-shadow-2xl object-cover bg-black border-2 border-black"
+					src={set.slots[1].entrant.participants[0].user.images?.[0]?.url ?? '/SX Icon White.webp'}
 					alt={set.slots[1].entrant.name}
 				/>
 			</div>
