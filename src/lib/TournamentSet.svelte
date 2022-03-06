@@ -55,10 +55,12 @@
 
 				<img
 					class="aspect-square drop-shadow-2xl object-cover bg-white border-2 border-black"
-					src={set.slots[0].entrant.participants[0].prefix
-						? `/logos/${set.slots[0].entrant.participants[0].prefix}.png`
-						: '/brand/SX Icon Black.webp'}
+					src={`/logos/${set.slots[0].entrant.participants[0].prefix}.png`}
 					alt={set.slots[0].entrant.name}
+					on:error={() => {
+						this.src = '/brand/SX Icon Black.webp';
+						this.onerror = null;
+					}}
 				/>
 
 				<div
@@ -89,10 +91,12 @@
 
 				<img
 					class="aspect-square drop-shadow-2xl object-cover bg-white border-2 border-black"
-					src={set.slots[1].entrant.participants[0].prefix
-						? `/logos/${set.slots[1].entrant.participants[0].prefix}.png`
-						: '/brand/SX Icon Black.webp'}
+					src={`/logos/${set.slots[1].entrant.participants[0].prefix}.png`}
 					alt={set.slots[1].entrant.name}
+					on:error={() => {
+						this.src = '/brand/SX Icon Black.webp';
+						this.onerror = null;
+					}}
 				/>
 
 				<span
