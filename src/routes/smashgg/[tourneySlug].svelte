@@ -6,7 +6,6 @@
 	const streamQueueQuery = gql`
 		query StreamQueueOnTournament($tourneySlug: String!) {
 			tournament(slug: $tourneySlug) {
-				id
 				streamQueue {
 					sets {
 						stream {
@@ -28,6 +27,8 @@
 							entrant {
 								name
 								participants {
+									prefix
+									gamerTag
 									user {
 										images {
 											url

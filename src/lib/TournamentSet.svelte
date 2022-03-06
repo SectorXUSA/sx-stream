@@ -42,15 +42,25 @@
 			<div class="flex justify-center h-16">
 				<img
 					class="aspect-square drop-shadow-2xl object-cover bg-black border-2 border-black"
-					src={set.slots[0].entrant.participants[0].user.images?.[0]?.url ?? '/SX Icon White.webp'}
-					alt={set.slots[0].entrant.name}
+					src={set.slots[0].entrant.participants[0].user.images?.[0]?.url ??
+						'/brand/SX Icon White.webp'}
+					alt={set.slots[0].entrant.participants[0].gamerTag}
 				/>
 
 				<span
-					class="bg-primary w-80 grid content-center justify-center p-4 text-4xl font-bold text-white border-2 border-black"
+					class="bg-primary border-x-0 grid content-center justify-center w-64 p-4 text-4xl font-bold text-white border-2 border-black"
 				>
 					{set.slots[0].entrant.name}</span
 				>
+
+				<img
+					class="aspect-square drop-shadow-2xl object-cover bg-white border-2 border-black"
+					src={set.slots[0].entrant.participants[0].prefix
+						? `/logos/${set.slots[0].entrant.participants[0].prefix}.png`
+						: '/brand/SX Icon Black.webp'}
+					alt={set.slots[0].entrant.name}
+				/>
+
 				<div
 					class="aspect-square border-x-0 flex justify-center h-full text-6xl font-bold bg-white border-2 border-black"
 				>
@@ -60,9 +70,10 @@
 						>
 					{/key}
 				</div>
+
 				<img
 					class="bg-white [height:150%] object-scale-down drop-shadow-2xl rounded-b-2xl border-2 border-black"
-					src="/SX Icon Black.webp"
+					src="/brand/SX Icon Black.webp"
 					alt="SX Logo"
 				/>
 				<!-- <span class="grid items-center justify-center text-4xl font-thin bg-white"> | </span> -->
@@ -75,14 +86,24 @@
 						>
 					{/key}
 				</div>
+
+				<img
+					class="aspect-square drop-shadow-2xl object-cover bg-white border-2 border-black"
+					src={set.slots[1].entrant.participants[0].prefix
+						? `/logos/${set.slots[1].entrant.participants[0].prefix}.png`
+						: '/brand/SX Icon Black.webp'}
+					alt={set.slots[1].entrant.name}
+				/>
+
 				<span
-					class="bg-primary w-80 grid content-center justify-center p-4 text-4xl font-bold text-white border-2 border-black"
+					class="bg-primary border-x-0 grid content-center justify-center w-64 p-4 text-4xl font-bold text-white border-2 border-black"
 				>
 					{set.slots[1].entrant.name}
 				</span>
 				<img
 					class="aspect-square drop-shadow-2xl object-cover bg-black border-2 border-black"
-					src={set.slots[1].entrant.participants[0].user.images?.[0]?.url ?? '/SX Icon White.webp'}
+					src={set.slots[1].entrant.participants[0].user.images?.[0]?.url ??
+						'/brand/SX Icon White.webp'}
 					alt={set.slots[1].entrant.name}
 				/>
 			</div>
