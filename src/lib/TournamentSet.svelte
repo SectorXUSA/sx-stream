@@ -47,8 +47,8 @@
 				<span
 					class="bg-primary border-x-0 grid content-center justify-center w-64 p-4 text-4xl font-bold text-white border-2 border-black"
 				>
-					{set.slots[0].entrant.name}</span
-				>
+					{set.slots[0].entrant.name}
+				</span>
 
 				<img
 					class="aspect-square drop-shadow-2xl object-cover bg-white border-2 border-black"
