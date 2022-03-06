@@ -1,6 +1,6 @@
 <script>
 	import { page } from '$app/stores';
-	import TournamentSet from '$lib/TournamentSet.svelte';
+	import SmashggOverlay from '$lib/SmashggOverlay.svelte';
 	import { gql, operationStore, query } from '@urql/svelte';
 
 	const streamQueueQuery = gql`
@@ -57,7 +57,25 @@
 	query(streamQueue);
 
 	let tournament;
+
 	$: if (!$streamQueue?.fetching && !$streamQueue?.error) ({ tournament } = $streamQueue.data);
+
+	// TODO: Get a real solution instead of running the same filter twice
+	$: streams = tournament?.streamQueue?.filter((stream) =>
+		stream.sets.filter((set) => {
+			const { streamSource, streamName } = set.stream;
+			const { state } = set;
+			return streamSource === 'TWITCH' && streamName === 'SectorXGaming' && state === 2;
+		})
+	);
+
+	$: sets = streams?.[0]?.sets.filter((set) => {
+		const { streamSource, streamName } = set.stream;
+		const { state } = set;
+		return streamSource === 'TWITCH' && streamName === 'SectorXGaming' && state === 2;
+	});
+
+	$: set = sets?.[0];
 
 	let ms = 2000;
 	let interval;
@@ -71,6 +89,6 @@
 	}
 </script>
 
-{#if tournament}
-	<TournamentSet {tournament} />
+{#if set}
+	<SmashggOverlay {set} />
 {/if}

@@ -1,24 +1,7 @@
 <script>
 	import { fade, fly } from 'svelte/transition';
 
-	export let tournament;
-
-	// TODO: Get a real solution instead of running the same filter twice
-	$: streams = tournament?.streamQueue?.filter((stream) =>
-		stream.sets.filter((set) => {
-			const { streamSource, streamName } = set.stream;
-			const { state } = set;
-			return streamSource === 'TWITCH' && streamName === 'SectorXGaming' && state === 2;
-		})
-	);
-
-	$: sets = streams?.[0]?.sets.filter((set) => {
-		const { streamSource, streamName } = set.stream;
-		const { state } = set;
-		return streamSource === 'TWITCH' && streamName === 'SectorXGaming' && state === 2;
-	});
-
-	$: set = sets?.[0];
+	export let set;
 </script>
 
 {#if set}
@@ -77,7 +60,7 @@
 					src="/brand/SX Icon Black.webp"
 					alt="SX Logo"
 				/>
-				<!-- <span class="grid items-center justify-center text-4xl font-thin bg-white"> | </span> -->
+
 				<div
 					class="aspect-square border-x-0 flex justify-center h-full text-6xl font-bold bg-white border-2 border-black"
 				>
@@ -103,6 +86,7 @@
 				>
 					{set.slots[1].entrant.name}
 				</span>
+
 				<img
 					class="aspect-square drop-shadow-2xl object-cover bg-black border-2 border-black rounded-br-lg"
 					src={set.slots[1].entrant.participants[0].user.images?.[0]?.url ??
