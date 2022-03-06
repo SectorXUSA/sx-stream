@@ -49,7 +49,7 @@
 					{set.slots[0].entrant.name}</span
 				>
 				<div
-					class="bg-white h-full aspect-square font-bold text-6xl border-2 border-x-0 border-black border-dashed"
+					class="bg-white h-full aspect-square flex justify-center font-bold text-6xl border-2 border-x-0 border-black border-dashed"
 				>
 					{#key set.slots[0].standing.stats.score.value}
 						<span class="absolute" transition:fade>
@@ -64,7 +64,7 @@
 				/>
 				<!-- <span class="bg-white  grid justify-center items-center font-thin text-4xl"> | </span> -->
 				<div
-					class="bg-white h-full aspect-square font-bold text-6xl border-2 border-x-0 border-black border-dashed"
+					class="bg-white h-full aspect-square flex justify-center font-bold text-6xl border-2 border-x-0 border-black border-dashed"
 				>
 					{#key set.slots[1].standing.stats.score.value}
 						<span class="absolute" transition:fade>
