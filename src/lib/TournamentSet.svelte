@@ -1,4 +1,6 @@
 <script>
+	import { fade, fly } from 'svelte/transition';
+
 	export let tournament;
 
 	// TODO: Get a real solution instead of running the same filter twice
@@ -20,7 +22,11 @@
 </script>
 
 {#if set}
-	<div class="fixed left-0 right-0 grid justify-items-center text-sx text-center">
+	<div
+		class="fixed left-0 right-0 grid justify-items-center text-sx text-center"
+		in:fly={{ y: -240, duration: 2000 }}
+		out:fade
+	>
 		<div>
 			<div class="max-w-full bg-white text-4xl  border-2 border-black border-dashed border-b-0">
 				<span>{set.event.tournament.name}</span>
@@ -36,27 +42,36 @@
 					src={set.slots[0].entrant.participants[0].user.images?.[0]?.url ?? '/SX Icon Black.webp'}
 					alt={set.slots[0].entrant.name}
 				/>
+
 				<span
 					class="bg-red-700 w-80 p-4 grid justify-center content-center text-white text-4xl font-bold border-2 border-black border-dashed"
 				>
 					{set.slots[0].entrant.name}</span
 				>
-				<span
-					class="bg-white grid justify-center content-center aspect-square font-bold text-6xl border-2 border-x-0 border-black border-dashed"
+				<div
+					class="bg-white h-full aspect-square font-bold text-6xl border-2 border-x-0 border-black border-dashed"
 				>
-					{set.slots[0].standing.stats.score.value ?? 0}
-				</span>
+					{#key set.slots[0].standing.stats.score.value}
+						<span class="absolute" transition:fade>
+							{set.slots[0].standing.stats.score.value ?? 0}</span
+						>
+					{/key}
+				</div>
 				<img
 					class="bg-white [height:150%] object-scale-down drop-shadow-2xl rounded-b-2xl border-2 border-black border-dashed"
 					src="/SX Icon Black.webp"
 					alt="SX Logo"
 				/>
 				<!-- <span class="bg-white  grid justify-center items-center font-thin text-4xl"> | </span> -->
-				<span
-					class="bg-white grid justify-center content-center aspect-square font-black text-6xl border-2 border-x-0 border-black border-dashed"
+				<div
+					class="bg-white h-full aspect-square font-bold text-6xl border-2 border-x-0 border-black border-dashed"
 				>
-					{set.slots[1].standing.stats.score.value ?? 0}
-				</span>
+					{#key set.slots[1].standing.stats.score.value}
+						<span class="absolute" transition:fade>
+							{set.slots[1].standing.stats.score.value ?? 0}</span
+						>
+					{/key}
+				</div>
 				<span
 					class="bg-red-700 w-80 p-4 grid justify-center content-center text-white text-4xl font-bold border-2 border-black border-dashed"
 				>
