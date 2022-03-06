@@ -22,7 +22,7 @@
 {#if set}
 	<div class="fixed left-0 right-0 grid justify-items-center text-sx text-center">
 		<div>
-			<div class="bg-white text-4xl  border-2 border-black border-dashed border-b-0">
+			<div class="max-w-full bg-white text-4xl  border-2 border-black border-dashed border-b-0">
 				<span>{set.event.tournament.name}</span>
 				-
 				<span>{set.event.name}</span>
@@ -69,17 +69,5 @@
 				/>
 			</div>
 		</div>
-	</div>
-
-	<div class="fixed left-0 right-0 bottom-0 flex flex-col justify-center items-center">
-		<div class="grid">
-			<div />
-			<div />
-		</div>
-		<!-- <img
-				class="h-20 object-scale-down drop-shadow-2xl bg-white rounded-xl"
-				src="/SX Type Black.webp"
-				alt="SX Logo"
-			/> -->
 	</div>
 {/if}
