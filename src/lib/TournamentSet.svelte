@@ -19,14 +19,11 @@
 	});
 
 	$: set = sets?.[0];
-
-	let top;
 </script>
 
 {#if set}
 	<div
 		class="justify-items-center text-sx fixed left-0 right-0 grid text-center"
-		bind:this={top}
 		in:fly={{ y: -window?.innerHeight / 2, duration: 1000 }}
 		out:fade
 	>
