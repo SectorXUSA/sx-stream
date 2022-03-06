@@ -24,9 +24,12 @@
 			<div class="flex justify-center h-16">
 				<img
 					class="aspect-square drop-shadow-2xl object-cover bg-black border-2 border-black rounded-bl-lg"
-					src={set.slots[0].entrant.participants[0].user.images?.[0]?.url ??
-						'/brand/SX Icon White.webp'}
+					src={set.slots[0].entrant.participants[0].user.images?.[0]?.url}
 					alt={set.slots[0].entrant.participants[0].gamerTag}
+					on:error={() => {
+						this.src = '/logos/fallback.png';
+						this.onerror = null;
+					}}
 				/>
 
 				<span
@@ -40,7 +43,7 @@
 					src={`/logos/${set.slots[0].entrant.participants[0].prefix}.png`}
 					alt={set.slots[0].entrant.name}
 					on:error={() => {
-						this.src = '/brand/SX Icon Black.webp';
+						this.src = '/logos/fallback.png';
 						this.onerror = null;
 					}}
 				/>
@@ -74,9 +77,9 @@
 				<img
 					class="aspect-square drop-shadow-2xl object-cover bg-white border-2 border-black"
 					src={`/logos/${set.slots[1].entrant.participants[0].prefix}.png`}
-					alt={set.slots[1].entrant.name}
+					alt={set.slots[1].entrant.participants[0].prefix}
 					on:error={() => {
-						this.src = '/brand/SX Icon Black.webp';
+						this.src = '/logos/fallback.png';
 						this.onerror = null;
 					}}
 				/>
@@ -89,9 +92,12 @@
 
 				<img
 					class="aspect-square drop-shadow-2xl object-cover bg-black border-2 border-black rounded-br-lg"
-					src={set.slots[1].entrant.participants[0].user.images?.[0]?.url ??
-						'/brand/SX Icon White.webp'}
-					alt={set.slots[1].entrant.name}
+					src={set.slots[1].entrant.participants[0].user.images?.[0]?.url}
+					alt={set.slots[1].entrant.participants[0].gamerTag}
+					on:error={() => {
+						this.src = '/logos/fallback.png';
+						this.onerror = null;
+					}}
 				/>
 			</div>
 		</div>
