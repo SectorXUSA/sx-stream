@@ -66,9 +66,7 @@
 		clearInterval(interval);
 
 		interval = setInterval(() => {
-			if (document?.hasFocus()) {
-				streamQueue.reexecute({ requestPolicy: 'network-only' });
-			}
+			streamQueue.reexecute({ requestPolicy: 'network-only' });
 		}, ms);
 	}
 </script>
