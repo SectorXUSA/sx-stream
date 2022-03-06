@@ -1,7 +1,5 @@
 <script>
 	import { page } from '$app/stores';
-
-	// urql initialization
 	import TournamentSet from '$lib/TournamentSet.svelte';
 	import { gql, operationStore, query } from '@urql/svelte';
 
