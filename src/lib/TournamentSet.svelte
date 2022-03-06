@@ -65,8 +65,8 @@
 				>
 					{#key set.slots[0].standing.stats.score.value}
 						<span class="absolute" transition:fade>
-							{set.slots[0].standing.stats.score.value ?? 0}</span
-						>
+							{set.slots[0].standing.stats.score.value ?? 0}
+						</span>
 					{/key}
 				</div>
 
@@ -81,8 +81,8 @@
 				>
 					{#key set.slots[1].standing.stats.score.value}
 						<span class="absolute" transition:fade>
-							{set.slots[1].standing.stats.score.value ?? 0}</span
-						>
+							{set.slots[1].standing.stats.score.value ?? 0}
+						</span>
 					{/key}
 				</div>
 
