@@ -23,12 +23,14 @@
 
 {#if set}
 	<div
-		class="justify-items-center text-sx fixed left-0 right-0 grid text-center"
+		class="justify-items-center text-sx drop-shadow-sm fixed left-0 right-0 grid m-2"
 		in:fly={{ y: -window?.innerHeight / 2, duration: 1000 }}
 		out:fade
 	>
 		<div>
-			<div class="max-w-full text-4xl bg-white border-2 border-b-0 border-black">
+			<div
+				class="max-w-full text-4xl text-center bg-white border-2 border-b-0 border-black rounded-t-lg"
+			>
 				<span>{set.event.tournament.name}</span>
 				-
 				<span>{set.event.name}</span>
@@ -38,7 +40,7 @@
 
 			<div class="flex justify-center h-16">
 				<img
-					class="aspect-square drop-shadow-2xl object-cover bg-black border-2 border-black"
+					class="aspect-square drop-shadow-2xl object-cover bg-black border-2 border-black rounded-bl-lg"
 					src={set.slots[0].entrant.participants[0].user.images?.[0]?.url ??
 						'/brand/SX Icon White.webp'}
 					alt={set.slots[0].entrant.participants[0].gamerTag}
@@ -102,7 +104,7 @@
 					{set.slots[1].entrant.name}
 				</span>
 				<img
-					class="aspect-square drop-shadow-2xl object-cover bg-black border-2 border-black"
+					class="aspect-square drop-shadow-2xl object-cover bg-black border-2 border-black rounded-br-lg"
 					src={set.slots[1].entrant.participants[0].user.images?.[0]?.url ??
 						'/brand/SX Icon White.webp'}
 					alt={set.slots[1].entrant.name}
