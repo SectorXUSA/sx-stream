@@ -52,12 +52,10 @@
 	`;
 
 	const { tourneySlug } = $page.params;
-
 	const streamQueue = operationStore(streamQueueQuery, { tourneySlug });
 	query(streamQueue);
 
 	let tournament;
-
 	$: if (!$streamQueue?.fetching && !$streamQueue?.error) ({ tournament } = $streamQueue.data);
 
 	// TODO: Get a real solution instead of running the same filter twice
@@ -77,7 +75,7 @@
 
 	$: set = sets?.[0];
 
-	let ms = 2000;
+	let ms = 1000;
 	let interval;
 
 	$: {
