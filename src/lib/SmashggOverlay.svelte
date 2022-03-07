@@ -22,7 +22,7 @@
 			</div>
 
 			<div class="flex justify-center h-16">
-				<div class="aspect-square bg-black border-2 border-black rounded-bl-lg">
+				<div class="aspect-square overflow-hidden bg-black border-2 border-black rounded-bl-lg">
 					{#if set?.slots?.[0]?.entrant?.participants?.[0]?.user?.images?.[0]?.url}
 						<img
 							class="drop-shadow-2xl object-cover w-full h-full"
@@ -38,7 +38,7 @@
 					{set.slots[0].entrant.name}
 				</span>
 
-				<div class="aspect-square bg-white border-2 border-black">
+				<div class="aspect-square overflow-hidden bg-white border-2 border-black">
 					{#if set.slots[0].entrant.participants[0].prefix}
 						<img
 							class="drop-shadow-2xl object-cover w-full h-full"
@@ -78,7 +78,7 @@
 					{/key}
 				</div>
 
-				<div class="aspect-square bg-white border-2 border-black">
+				<div class="aspect-square overflow-hidden bg-white border-2 border-black">
 					{#if set.slots[1].entrant.participants[0].prefix}
 						<img
 							class="drop-shadow-2xl object-cover w-full h-full"
@@ -98,7 +98,7 @@
 					{set.slots[1].entrant.name}
 				</span>
 
-				<div class="aspect-square bg-black border-2 border-black rounded-br-lg">
+				<div class="aspect-square overflow-hidden bg-black border-2 border-black rounded-br-lg">
 					{#if set.slots[1].entrant.participants[0].user?.images?.[0]?.url}
 						<img
 							class="drop-shadow-2xl object-cover w-full h-full"
