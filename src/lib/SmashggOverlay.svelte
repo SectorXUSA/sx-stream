@@ -32,11 +32,11 @@
 					{/if}
 				</div>
 
-				<span
+				<div
 					class="bg-primary border-x-0 grid content-center justify-center w-64 p-4 text-4xl font-bold text-white border-2 border-black"
 				>
-					{set.slots[0].entrant.name}
-				</span>
+					<span>{set.slots[0].entrant.name}</span>
+				</div>
 
 				<div class="aspect-square overflow-hidden bg-white border-2 border-black">
 					{#if set.slots[0].entrant.participants[0].prefix}
@@ -92,11 +92,11 @@
 					{/if}
 				</div>
 
-				<span
+				<div
 					class="bg-primary border-x-0 grid content-center justify-center w-64 p-4 text-4xl font-bold text-white border-2 border-black"
 				>
-					{set.slots[1].entrant.name}
-				</span>
+					<span>{set.slots[1].entrant.name} </span>
+				</div>
 
 				<div class="aspect-square overflow-hidden bg-black border-2 border-black rounded-br-lg">
 					{#if set.slots[1].entrant.participants[0].user?.images?.[0]?.url}
