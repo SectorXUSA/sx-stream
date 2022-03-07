@@ -22,15 +22,15 @@
 			</div>
 
 			<div class="flex justify-center h-16">
-				<img
-					class="aspect-square drop-shadow-2xl object-cover bg-black border-2 border-black rounded-bl-lg"
-					src={set.slots[0].entrant.participants[0].user.images?.[0]?.url}
-					alt={set.slots[0].entrant.participants[0].gamerTag}
-					on:error={() => {
-						this.src = '/logos/fallback.png';
-						this.onerror = null;
-					}}
-				/>
+				<div class="aspect-square bg-black border-2 border-black rounded-bl-lg">
+					{#if set?.slots?.[0]?.entrant?.participants?.[0]?.user?.images?.[0]?.url}
+						<img
+							class="drop-shadow-2xl object-cover w-full h-full"
+							src={set.slots[0].entrant.participants[0].user?.images?.[0]?.url}
+							alt={set.slots[0].entrant.participants[0].gamerTag}
+						/>
+					{/if}
+				</div>
 
 				<span
 					class="bg-primary border-x-0 grid content-center justify-center w-64 p-4 text-4xl font-bold text-white border-2 border-black"
@@ -38,15 +38,19 @@
 					{set.slots[0].entrant.name}
 				</span>
 
-				<img
-					class="aspect-square drop-shadow-2xl object-cover bg-white border-2 border-black"
-					src={`/logos/${set.slots[0].entrant.participants[0].prefix}.png`}
-					alt={set.slots[0].entrant.name}
-					on:error={() => {
-						this.src = '/logos/fallback.png';
-						this.onerror = null;
-					}}
-				/>
+				<div class="aspect-square bg-white border-2 border-black">
+					{#if set.slots[0].entrant.participants[0].prefix}
+						<img
+							class="drop-shadow-2xl object-cover w-full h-full"
+							src={`/logos/${set.slots[0].entrant.participants[0].prefix}.png`}
+							alt={set.slots[0].entrant.name}
+							on:error={(e) => {
+								e.target.src = '/logos/_fallback.png';
+								e.target.onerror = null;
+							}}
+						/>
+					{/if}
+				</div>
 
 				<div
 					class="aspect-square border-x-0 flex justify-center h-full text-6xl font-bold bg-white border-2 border-black"
@@ -74,15 +78,19 @@
 					{/key}
 				</div>
 
-				<img
-					class="aspect-square drop-shadow-2xl object-cover bg-white border-2 border-black"
-					src={`/logos/${set.slots[1].entrant.participants[0].prefix}.png`}
-					alt={set.slots[1].entrant.participants[0].prefix}
-					on:error={() => {
-						this.src = '/logos/fallback.png';
-						this.onerror = null;
-					}}
-				/>
+				<div class="aspect-square bg-white border-2 border-black">
+					{#if set.slots[1].entrant.participants[0].prefix}
+						<img
+							class="drop-shadow-2xl object-cover w-full h-full"
+							src={`/logos/${set.slots[1].entrant.participants[0].prefix}.png`}
+							alt={set.slots[1].entrant.participants[0].prefix}
+							on:error={(e) => {
+								e.target.src = '/logos/_fallback.png';
+								e.target.onerror = null;
+							}}
+						/>
+					{/if}
+				</div>
 
 				<span
 					class="bg-primary border-x-0 grid content-center justify-center w-64 p-4 text-4xl font-bold text-white border-2 border-black"
@@ -90,15 +98,16 @@
 					{set.slots[1].entrant.name}
 				</span>
 
-				<img
-					class="aspect-square drop-shadow-2xl object-cover bg-black border-2 border-black rounded-br-lg"
-					src={set.slots[1].entrant.participants[0].user.images?.[0]?.url}
-					alt={set.slots[1].entrant.participants[0].gamerTag}
-					on:error={() => {
-						this.src = '/logos/fallback.png';
-						this.onerror = null;
-					}}
-				/>
+				<div class="aspect-square bg-black border-2 border-black rounded-br-lg">
+					{#if set.slots[1].entrant.participants[0].user?.images?.[0]?.url}
+						<img
+							class="drop-shadow-2xl object-cover w-full h-full"
+							src={set.slots[1].entrant.participants[0].user?.images?.[0]?.url ??
+								'/logos/_fallback.png'}
+							alt={set.slots[1].entrant.participants[0].gamerTag}
+						/>
+					{/if}
+				</div>
 			</div>
 		</div>
 	</div>
