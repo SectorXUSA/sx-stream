@@ -3,6 +3,8 @@ const forms = require('@tailwindcss/forms');
 const textFillStroke = require('tailwindcss-text-fill-stroke')();
 
 const config = {
+	mode: 'jit',
+
 	content: ['./src/**/*.{html,js,svelte,ts}'],
 
 	theme: {
