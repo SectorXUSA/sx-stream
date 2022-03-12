@@ -99,6 +99,4 @@
 	}
 </script>
 
-{#if set}
-	<SmashggOverlay {set} />
-{/if}
+<SmashggOverlay {set} />
