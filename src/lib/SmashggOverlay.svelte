@@ -40,9 +40,10 @@
 
 				<div class="aspect-square overflow-hidden bg-white border-2 border-black">
 					{#if set.slots[0].entrant.participants[0].prefix}
+						<!-- TODO: use css for images and use real fallback extensions -->
 						<img
 							class="drop-shadow-2xl object-cover w-full h-full"
-							src={`/logos/${set.slots[0].entrant.participants[0].prefix}.png`}
+							src="/logos/{set.slots[0].entrant.participants[0].prefix}.png"
 							alt={set.slots[0].entrant.name}
 							on:error={(e) => {
 								e.target.src = '/logos/_fallback.png';
@@ -82,7 +83,7 @@
 					{#if set.slots[1].entrant.participants[0].prefix}
 						<img
 							class="drop-shadow-2xl object-cover w-full h-full"
-							src={`/logos/${set.slots[1].entrant.participants[0].prefix}.png`}
+							src="/logos/${set.slots[1].entrant.participants[0].prefix}.png"
 							alt={set.slots[1].entrant.participants[0].prefix}
 							on:error={(e) => {
 								e.target.src = '/logos/_fallback.png';
