@@ -70,15 +70,20 @@
 	let tournament;
 	$: if (!$operation?.fetching && !$operation?.error) ({ tournament } = $operation?.data);
 
-	// get the set where streamSource === 'TWITCH' && streamName === 'SectorXGaming' && state === 2
 	$: set = tournament?.streamQueue
 		?.find((_streamQueue) => _streamQueue)
 		.sets?.find(
 			(_set) =>
-				_set.stream?.streamSource?.toLowerCase() ===
-					import.meta.env.VITE_STREAM_SOURCE?.toString().toLowerCase() &&
-				_set.stream?.streamName?.toLowerCase() ===
-					import.meta.env.VITE_STREAM_NAME?.toString().toLowerCase() &&
+				_set.stream?.streamSource?.localeCompare(
+					import.meta.env.VITE_STREAM_SOURCE?.toString(),
+					undefined,
+					{ sensitivity: 'accent' }
+				) === 0 &&
+				_set.stream?.streamName?.localeCompare(
+					import.meta.env.VITE_STREAM_NAME?.toString(),
+					undefined,
+					{ sensitivity: 'accent' }
+				) === 0 &&
 				_set.state === 2
 		);
 
