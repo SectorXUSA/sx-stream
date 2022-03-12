@@ -83,7 +83,7 @@
 					{#if set.slots[1].entrant.participants[0].prefix}
 						<img
 							class="drop-shadow-2xl object-cover w-full h-full"
-							src="/logos/${set.slots[1].entrant.participants[0].prefix}.png"
+							src="/logos/{set.slots[1].entrant.participants[0].prefix}.png"
 							alt={set.slots[1].entrant.participants[0].prefix}
 							on:error={(e) => {
 								e.target.src = '/logos/_fallback.png';
