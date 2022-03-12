@@ -1,7 +1,7 @@
 <script>
 	import { page } from '$app/stores';
-	import SmashggOverlay from '$lib/SmashggOverlay.svelte';
 	import { gql, operationStore, query } from '@urql/svelte';
+	import SmashggOverlay from '$lib/SmashggOverlay.svelte';
 
 	const OPERATION = gql`
 		query StreamQueueBySlug($slug: String!) {
@@ -94,7 +94,7 @@
 		clearInterval(interval);
 
 		interval = setInterval(() => {
-			operation.reexecute({ requestPolicy: 'network-only' });
+			$operation.reexecute({ requestPolicy: 'network-only' });
 		}, ms);
 	}
 </script>
