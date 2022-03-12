@@ -4,6 +4,8 @@
 	export let set;
 </script>
 
+<!-- TODO: {#key} all reactive values -->
+
 {#if set}
 	<div
 		class="justify-items-center text-sx drop-shadow-sm fixed left-0 right-0 grid m-2"
