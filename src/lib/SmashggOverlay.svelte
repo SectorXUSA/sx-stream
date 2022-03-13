@@ -59,9 +59,9 @@
 				<div
 					class="aspect-square border-x-0 flex justify-center h-full text-6xl font-bold bg-white border-2 border-black"
 				>
-					{#key override?.entrant1Score || set?.slots?.[0]?.standing?.stats?.score?.value}
+					{#key override?.entrant1Score ?? set?.slots?.[0]?.standing?.stats?.score?.value}
 						<span class="absolute" transition:fade>
-							{(override?.entrant1Score || set?.slots?.[0]?.standing?.stats?.score?.value) ?? 0}
+							{override?.entrant1Score ?? set?.slots?.[0]?.standing?.stats?.score?.value ?? 0}
 						</span>
 					{/key}
 				</div>
@@ -75,9 +75,9 @@
 				<div
 					class="aspect-square border-x-0 flex justify-center h-full text-6xl font-bold bg-white border-2 border-black"
 				>
-					{#key override?.entrant2Score || set?.slots?.[1]?.standing?.stats?.score?.value}
+					{#key override?.entrant2Score ?? set?.slots?.[1]?.standing?.stats?.score?.value}
 						<span class="absolute" transition:fade>
-							{(override?.entrant2Score || set?.slots?.[1]?.standing?.stats?.score?.value) ?? 0}
+							{override?.entrant2Score ?? set?.slots?.[1]?.standing?.stats?.score?.value ?? 0}
 						</span>
 					{/key}
 				</div>
