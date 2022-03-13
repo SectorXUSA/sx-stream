@@ -1,6 +1,7 @@
 <script>
 	import { page } from '$app/stores';
 	import { gql, operationStore, query } from '@urql/svelte';
+	import { override } from '$lib/stores';
 	import SmashggOverlay from '$lib/SmashggOverlay.svelte';
 
 	const OPERATION = gql`
@@ -16,29 +17,23 @@
 			sets {
 				state
 				fullRoundText
-
 				stream {
 					streamSource
 					streamName
 				}
-
 				event {
 					name
-
 					tournament {
 						name
 					}
-
 					videogame {
 						name
 					}
 				}
-
 				slots {
 					entrant {
 						name
 						initialSeedNum
-
 						participants {
 							prefix
 							gamerTag
@@ -50,7 +45,6 @@
 							}
 						}
 					}
-
 					standing {
 						stats {
 							score {
@@ -99,4 +93,4 @@
 	}
 </script>
 
-<SmashggOverlay {set} />
+<SmashggOverlay {set} override={$override} />

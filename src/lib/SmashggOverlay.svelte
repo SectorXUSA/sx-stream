@@ -1,7 +1,8 @@
 <script>
 	import { fade, fly } from 'svelte/transition';
 
-	export let set;
+	export let set = null;
+	export let override = null;
 </script>
 
 <!-- TODO: {#key} all reactive values -->
@@ -16,20 +17,20 @@
 			<div
 				class="max-w-full text-4xl text-center bg-white border-2 border-b-0 border-black rounded-t-lg"
 			>
-				<span>{set.event.tournament.name}</span>
+				<span>{override?.tournamentName || set?.event?.tournament?.name}</span>
 				-
-				<span>{set.event.name}</span>
+				<span>{override?.eventName || set?.event?.name}</span>
 				-
-				<span>{set.fullRoundText}</span>
+				<span>{override?.fullRoundText || set?.fullRoundText}</span>
 			</div>
 
 			<div class="flex justify-center h-16">
 				<div class="aspect-square overflow-hidden bg-black border-2 border-black rounded-bl-lg">
-					{#if set?.slots?.[0]?.entrant?.participants?.[0]?.user?.images?.[0]?.url}
+					{#if set?.slots?.[0]?.entrant?.participants?.[0]?.user?.images?.[0]?.url ?? set?.slots?.[0]?.entrant?.participants?.[0]?.user?.images?.[0]?.url}
 						<img
 							class="drop-shadow-2xl object-cover w-full h-full"
-							src={set.slots[0].entrant.participants[0].user?.images?.[0]?.url}
-							alt={set.slots[0].entrant.participants[0].gamerTag}
+							src={set?.slots?.[0]?.entrant?.participants?.[0]?.user?.images?.[0]?.url}
+							alt={set?.slots?.[0]?.entrant?.participants?.[0]?.gamerTag}
 						/>
 					{/if}
 				</div>
@@ -37,16 +38,16 @@
 				<div
 					class="bg-primary border-x-0 grid content-center justify-center w-64 p-4 text-4xl font-bold text-white border-2 border-black"
 				>
-					<span>{set.slots[0].entrant.name}</span>
+					<span>{override?.entrant1Name || set?.slots?.[0]?.entrant?.name}</span>
 				</div>
 
 				<div class="aspect-square overflow-hidden bg-white border-2 border-black">
-					{#if set.slots[0].entrant.participants[0].prefix}
+					{#if set?.slots?.[0]?.entrant?.participants?.[0]?.prefix}
 						<!-- TODO: use css for images and use real fallback extensions -->
 						<img
 							class="drop-shadow-2xl object-cover w-full h-full"
-							src="/logos/{set.slots[0].entrant.participants[0].prefix}.png"
-							alt={set.slots[0].entrant.name}
+							src="/logos/{set?.slots?.[0]?.entrant?.participants?.[0]?.prefix}.png"
+							alt={set?.slots?.[0]?.entrant?.name}
 							on:error={(e) => {
 								e.target.src = '/logos/_fallback.png';
 								e.target.onerror = null;
@@ -58,9 +59,9 @@
 				<div
 					class="aspect-square border-x-0 flex justify-center h-full text-6xl font-bold bg-white border-2 border-black"
 				>
-					{#key set.slots[0].standing.stats.score.value}
+					{#key override?.entrant1Score || set?.slots?.[0]?.standing?.stats?.score?.value}
 						<span class="absolute" transition:fade>
-							{set.slots[0].standing.stats.score.value ?? 0}
+							{(override?.entrant1Score || set?.slots?.[0]?.standing?.stats?.score?.value) ?? 0}
 						</span>
 					{/key}
 				</div>
@@ -74,19 +75,19 @@
 				<div
 					class="aspect-square border-x-0 flex justify-center h-full text-6xl font-bold bg-white border-2 border-black"
 				>
-					{#key set.slots[1].standing.stats.score.value}
+					{#key override?.entrant2Score || set?.slots?.[1]?.standing?.stats?.score?.value}
 						<span class="absolute" transition:fade>
-							{set.slots[1].standing.stats.score.value ?? 0}
+							{(override?.entrant2Score || set?.slots?.[1]?.standing?.stats?.score?.value) ?? 0}
 						</span>
 					{/key}
 				</div>
 
 				<div class="aspect-square overflow-hidden bg-white border-2 border-black">
-					{#if set.slots[1].entrant.participants[0].prefix}
+					{#if set?.slots?.[1]?.entrant?.participants?.[0]?.prefix}
 						<img
 							class="drop-shadow-2xl object-cover w-full h-full"
-							src="/logos/{set.slots[1].entrant.participants[0].prefix}.png"
-							alt={set.slots[1].entrant.participants[0].prefix}
+							src="/logos/{set?.slots?.[1]?.entrant?.participants?.[0]?.prefix}.png"
+							alt={set?.slots?.[1]?.entrant?.participants?.[0]?.prefix}
 							on:error={(e) => {
 								e.target.src = '/logos/_fallback.png';
 								e.target.onerror = null;
@@ -98,16 +99,16 @@
 				<div
 					class="bg-primary border-x-0 grid content-center justify-center w-64 p-4 text-4xl font-bold text-white border-2 border-black"
 				>
-					<span>{set.slots[1].entrant.name} </span>
+					<span>{override?.entrant2Name || set?.slots?.[1]?.entrant?.name} </span>
 				</div>
 
 				<div class="aspect-square overflow-hidden bg-black border-2 border-black rounded-br-lg">
-					{#if set.slots[1].entrant.participants[0].user?.images?.[0]?.url}
+					{#if set?.slots?.[1]?.entrant?.participants?.[0]?.user?.images?.[0]?.url}
 						<img
 							class="drop-shadow-2xl object-cover w-full h-full"
-							src={set.slots[1].entrant.participants[0].user?.images?.[0]?.url ??
+							src={set?.slots?.[1]?.entrant?.participants?.[0]?.user?.images?.[0]?.url ??
 								'/logos/_fallback.png'}
-							alt={set.slots[1].entrant.participants[0].gamerTag}
+							alt={set?.slots?.[1]?.entrant?.participants?.[0]?.gamerTag}
 						/>
 					{/if}
 				</div>
