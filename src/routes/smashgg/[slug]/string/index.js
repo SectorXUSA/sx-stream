@@ -1,6 +1,6 @@
 import { gql, createClient } from '@urql/core';
 
-export async function get({ params: { tourneySlug } }) {
+export async function get({ params: { slug } }) {
 	const client = createClient({
 		url: import.meta.env.VITE_SMASHGG_URL?.toString(),
 		fetchOptions: () => {
@@ -12,8 +12,8 @@ export async function get({ params: { tourneySlug } }) {
 	});
 
 	const QUERY = gql`
-		query StreamQueueOnTournament($tourneySlug: String!) {
-			tournament(slug: $tourneySlug) {
+		query StreamQueueOnTournament($slug: String!) {
+			tournament(slug: $slug) {
 				streamQueue {
 					sets {
 						stream {
@@ -59,7 +59,8 @@ export async function get({ params: { tourneySlug } }) {
 		}
 	`;
 
-	const result = await client.query(QUERY, { tourneySlug }).toPromise();
+	const result = await client.query(QUERY, { slug }).toPromise();
+	console.log(result.data);
 
 	const { tournament } = result.data;
 
