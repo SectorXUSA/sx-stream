@@ -1,3 +1,5 @@
+//TODO: make this redirect to setId instead of serving text
+
 import { gql, createClient } from '@urql/core';
 
 export async function get({ params: { slug } }) {
