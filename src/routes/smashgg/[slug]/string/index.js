@@ -60,7 +60,6 @@ export async function get({ params: { slug } }) {
 	`;
 
 	const result = await client.query(QUERY, { slug }).toPromise();
-	console.log(result.data);
 
 	const { tournament } = result.data;
 
