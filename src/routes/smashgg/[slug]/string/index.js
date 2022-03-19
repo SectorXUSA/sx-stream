@@ -63,21 +63,22 @@ export async function get({ params: { slug } }) {
 
 	const { tournament } = result.data;
 
-	const streams = tournament?.streamQueue?.filter((stream) =>
-		stream.sets.filter((set) => {
-			const { streamSource, streamName } = set.stream;
-			const { state } = set;
-			return streamSource === 'TWITCH' && streamName === 'SectorXGaming' && state === 2;
-		})
-	);
-
-	const sets = streams?.[0]?.sets.filter((set) => {
-		const { streamSource, streamName } = set.stream;
-		const { state } = set;
-		return streamSource === 'TWITCH' && streamName === 'SectorXGaming' && state === 2;
-	});
-
-	const set = sets?.[0];
+	const set = tournament?.streamQueue
+		?.find((_streamQueue) => _streamQueue)
+		.sets?.find(
+			(_set) =>
+				_set.stream?.streamSource?.localeCompare(
+					import.meta.env.VITE_STREAM_SOURCE?.toString(),
+					undefined,
+					{ sensitivity: 'accent' }
+				) === 0 &&
+				_set.stream?.streamName?.localeCompare(
+					import.meta.env.VITE_STREAM_NAME?.toString(),
+					undefined,
+					{ sensitivity: 'accent' }
+				) === 0 &&
+				_set.state === 2
+		);
 
 	if (set) {
 		const tournamentName = set.event.tournament.name;
