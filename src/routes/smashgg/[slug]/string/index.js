@@ -81,14 +81,14 @@ export async function get({ params: { slug } }) {
 		);
 
 	if (set) {
-		const tournamentName = set.event.tournament.name;
-		const eventName = set.event.name;
-		const fullRoundText = set.fullRoundText;
-		const player1Name = set.slots[0].entrant.name;
-		const player2Name = set.slots[1].entrant.name;
+		const { name: tournamentName } = set.event.tournament;
+		const { name: eventName } = set.event;
+		const { fullRoundText } = set;
+		const { name: p1Name } = set.slots[0].entrant;
+		const { name: p2Name } = set.slots[1].entrant;
 
 		return {
-			body: `${tournamentName} ${fullRoundText} ➤ ${player1Name} vs ${player2Name} 【${eventName}】`
+			body: `${tournamentName} ${fullRoundText} ➤ ${p1Name} vs ${p2Name} 【${eventName}】`
 		};
 	}
 
