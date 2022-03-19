@@ -17,9 +17,9 @@
 				class="max-w-full text-4xl text-center bg-white border-2 border-b-0 border-black rounded-t-lg"
 			>
 				<span>{set.event.tournament.name}</span>
-				-
+				<span>•</span>
 				<span>{set.event.name}</span>
-				-
+				<span>•</span>
 				<span>{set.fullRoundText}</span>
 			</div>
 
