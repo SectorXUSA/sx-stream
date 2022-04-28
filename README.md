@@ -6,4 +6,4 @@
 
 This software is free for non-commercial usage.
 
-Commercial or otherwise organized usage is subject to licsensing. Contact info@sectorxusa.com for more info.
+Commercial or otherwise organized usage is subject to licensing. Contact info@sectorxusa.com for more info.
