@@ -66,7 +66,7 @@
 				</div>
 
 				<img
-					class="bg-white [height:150%] object-scale-down drop-shadow-2xl rounded-b-2xl border-2 border-black"
+					class="bg-white [height:100%] object-scale-down drop-shadow-2xl rounded-b-2xl border-2 border-black"
 					src="/brand/SX Icon Black.webp"
 					alt="SX Logo"
 				/>
